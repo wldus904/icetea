@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import HeaderGlobal from "@/components/layout/HeaderGlobal";
 import GNB from "@/components/layout/GNB";
-import FooterGlobal from "@/components/layout/FooterGlobal"; // Added FooterGlobal import
+import FooterGlobal from "@/components/layout/FooterGlobal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,15 +21,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="h-full"><body // <--- <html>과 <body>를 같은 줄에 붙임
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen pt-[6.5rem]`} // Adjusted for sticky footer
+    <html lang="en" className="h-full"><body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen pt-[6.5rem]`}
       >
         <HeaderGlobal />
         <GNB />
-        <main className="flex-grow"> {/* Added main tag with flex-grow */}
+        <main className="flex-grow">
           {children}
         </main>
-        <FooterGlobal /> {/* Added FooterGlobal component */}
-      </body></html> // <--- </body>와 </html>을 같은 줄에 붙임
+        <FooterGlobal />
+      </body></html>
   );
 }
