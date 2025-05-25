@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import HeaderGlobal from "@/components/layout/HeaderGlobal";
+import GNB from "@/components/layout/GNB";
+import FooterGlobal from "@/components/layout/FooterGlobal"; // Added FooterGlobal import
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,11 +21,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full"> {/* Added h-full for html */}
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen pt-[6.5rem]`} // Adjusted for sticky footer
       >
-        {children}
+        <HeaderGlobal />
+        <GNB />
+        <main className="flex-grow"> {/* Added main tag with flex-grow */}
+          {children}
+        </main>
+        <FooterGlobal /> {/* Added FooterGlobal component */}
       </body>
     </html>
   );
